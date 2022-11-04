@@ -1,0 +1,16 @@
+
+
+<div class="wrapper">
+    <div class="headerTitle">Title</div>
+
+    <div class="select">
+        <mat-form-field appearance="fill">
+            <mat-label>Currency to use</mat-label>
+            <mat-select>
+              <mat-option  *ngFor="let item of cureency" [value]="item.value">
+                {{item.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.onImgText{
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.backgrImg{
+    width: 100%;
+    height: 400px;
+
+}
+
+.heroText{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.searchComp{
+    width: 100%;
+}

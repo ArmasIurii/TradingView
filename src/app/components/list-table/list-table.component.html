@@ -1,0 +1,59 @@
+<div class="mat-elevation-z8">
+  <table
+    mat-table
+    class="full-width-table"
+    matSort
+    aria-label="Elements"
+    [dataSource]="dataSource"
+  >
+    <!-- Logo Column -->
+
+    <ng-container matColumnDef="coinImg">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Coin</th>
+      <td mat-cell *matCellDef="let row">
+        <div class="iconSymbolGroup">
+          <img class="coinLogo" src="{{ row.image }}" alt="" />
+          <div style="text-transform: uppercase">{{ row.symbol }}</div>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="current_price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+      <td mat-cell *matCellDef="let row">${{ row.current_price }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="price_change_percentage_24h">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>24h Change</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.price_change_percentage_24h }}
+      </td>
+    </ng-container>
+
+    <!-- Rank Column -->
+    <ng-container matColumnDef="market_cap">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Market Cap</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.market_cap / 1000000000 }}B$
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      (click)="openCoinDetails(row)"
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
